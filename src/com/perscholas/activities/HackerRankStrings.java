@@ -6,7 +6,10 @@ public class HackerRankStrings {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
-		stringsIntroduction(sc);
+		// stringsIntroduction(sc);
+		String s = "welcometojava";
+		
+		substringComparisons(s, 3);
         
 	}
 	
@@ -102,7 +105,7 @@ public class HackerRankStrings {
         System.out.println(output);
 	}
 	
-	public static void substringComparisons(String s, int k) {
+	public static String substringComparisons(String s, int k) {
 		/*
 		 * We define the following terms:
 
@@ -139,18 +142,58 @@ public class HackerRankStrings {
 			
 			ava
 			wel
-		 */
-		
+		 
+		**************SOLVED THIS WITH ARRAYLIST, BUT WAS NOT ACCEPTABLE BY HACKER RANK**********
         String smallest = "";
         String largest = "";
-        String[] list;
+        ArrayList<String> list = new ArrayList<String>();
         
         // Complete the function
         for (int i = 0; i < s.length(); i++) {
-        	list.add(s.substring(i, k));
+        	if (k + i > s.length()) break;
+        	list.add(s.substring(i, k + i));
         }
+        
+        System.out.println(list);
         // 'smallest' must be the lexicographically smallest substring of length 'k'
-        // 'largest' must be the lexicographically largest substring of length 'k'
+        smallest = list.get(0);
+        largest = list.get(0);
+        for (int i = 0; i < list.size(); i++) {
+        	int sm = Character.getNumericValue(smallest.charAt(0));
+        	int lg = Character.getNumericValue(largest.charAt(0));
+        	if (sm > Character.getNumericValue((list.get(i)).charAt(0))) {
+        		smallest = list.get(i);
+            // 'largest' must be the lexicographically largest substring of length 'k'
+        	} else if (lg < Character.getNumericValue((list.get(i)).charAt(0))) {
+        		largest = list.get(i);
+        	}
+        }
+        */
+		// SOLUTION ACCEPTABLE BY HACKER RANK USED String[] instead
+        String smallest = "";
+        String largest = "";
+        String[] list = new String[s.length()];
+        
+        // Complete the function
+        for (int i = 0; i < s.length(); i++) {
+            if (k + i > s.length()) break;
+            list[i] = s.substring(i, k + i);
+        }
+        
+        // 'smallest' must be the lexicographically smallest substring of length 'k'
+        smallest = list[0];
+        largest = list[0];
+
+        for (int ind = 0; ind < list.length; ind++) {
+            if (list[ind] == null) break;
+            String iVariable = list[ind];
+            if (smallest.compareTo(list[ind]) > 0) {
+                smallest = iVariable;
+            // 'largest' must be the lexicographically largest substring of length 'k'
+            } else if (largest.compareTo(iVariable) < 0) {
+                largest = iVariable;
+            }
+        }
         
         return smallest + "\n" + largest;
 		
