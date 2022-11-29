@@ -9,8 +9,17 @@ public class HackerRankStrings {
 		// stringsIntroduction(sc);
 		String s = "welcometojava";
 		
+		stringsIntroduction(sc);
+		System.out.println("");
+		substring(sc);
+		System.out.println("");
 		substringComparisons(s, 3);
-        
+		System.out.println("");
+		stringReverse(sc);
+		System.out.println("");
+		stringTokens(sc);
+		
+        sc.close();
 	}
 	
 	public static void stringsIntroduction(Scanner sc) {
@@ -69,7 +78,6 @@ public class HackerRankStrings {
        System.out.println(aGreater);
        System.out.println(sentence);
        
-       sc.close();
 	}
 	
 	public static void substring(Scanner in) {
@@ -105,7 +113,7 @@ public class HackerRankStrings {
         System.out.println(output);
 	}
 	
-	public static String substringComparisons(String s, int k) {
+	public static void substringComparisons(String s, int k) {
 		/*
 		 * We define the following terms:
 
@@ -168,7 +176,7 @@ public class HackerRankStrings {
         		largest = list.get(i);
         	}
         }
-        */
+        *******************************************************************************************/
 		// SOLUTION ACCEPTABLE BY HACKER RANK USED String[] instead
         String smallest = "";
         String largest = "";
@@ -187,7 +195,7 @@ public class HackerRankStrings {
         for (int ind = 0; ind < list.length; ind++) {
             if (list[ind] == null) break;
             String iVariable = list[ind];
-            if (smallest.compareTo(list[ind]) > 0) {
+            if (smallest.compareTo(iVariable) > 0) {
                 smallest = iVariable;
             // 'largest' must be the lexicographically largest substring of length 'k'
             } else if (largest.compareTo(iVariable) < 0) {
@@ -195,16 +203,59 @@ public class HackerRankStrings {
             }
         }
         
-        return smallest + "\n" + largest;
+        System.out.println(smallest + "\n" + largest);
 		
 	}
 	
-	public static void stringReverse() {
-		
-	}
-	
-	public static void stringTokens() {
-		
-	}
+	public static void stringReverse(Scanner sc) {
+		/*
+		 * 	A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward.
 
+			Given a string , print Yes if it is a palindrome, print No otherwise.
+			
+			Constraints
+			
+			 will consist at most  lower case english letters.
+			Sample Input
+			
+			madam
+			Sample Output
+			
+			Yes
+		 */
+        String A = sc.next();
+        /* Enter your code here. Print output to STDOUT. */
+        StringBuffer B = new StringBuffer(A).reverse();					// String Buffer has a reverse method
+        String palindrome = A.equals(B.toString()) ? "Yes" : "No";		// a String Buffer is not a string so I had to turn it into one
+        System.out.println(palindrome);
+    }
+	
+	public static void stringTokens(Scanner scan) {
+		/*
+		 * Given a string, , matching the regular expression [A-Za-z !,?._'@]+, split the string into tokens. We define a token to be one or more consecutive English alphabetic letters. Then, print the number of tokens, followed by each token on a new line.
+
+			Note: You may find the String.split method helpful in completing this challenge.
+			
+			Input Format
+			
+			A single string, .
+			
+			Constraints
+			
+			 is composed of any of the following: English alphabetic letters, blank spaces, exclamation points (!), commas (,), question marks (?), periods (.), underscores (_), apostrophes ('), and at symbols (@).
+			Output Format
+			
+			On the first line, print an integer, , denoting the number of tokens in string  (they do not need to be unique). Next, print each of the  tokens on a new line in the same order as they appear in input string .
+		 */
+        String s = scan.nextLine();
+        // Write your code here.
+        s = s.trim();
+        String[] tokens = s.split("[ !,?._'@]+");
+        int tLength = s.length() > 0 ? tokens.length : 0; // needed to return a 0 even if there were no tokens
+        System.out.println(tLength);
+        
+        for (int i = 0; i < tokens.length; i++) {
+            System.out.println(tokens[i]);
+        }
+	}
 }
