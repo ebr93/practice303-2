@@ -152,9 +152,7 @@ public class ControlFlow {
 		}  else if (status.equals("Head of Household") &&  income >= 0 && income <= 11950) {
 			taxCollected = income * 0.1;
 			tax = 10;
-		}
-		
-		if (status.equals("Single") && income >= 8351 && income <= 33950) {
+		} else if (status.equals("Single") && income >= 8351 && income <= 33950) {
 			taxCollected = income * 0.15;
 			tax = 15;
 		} else if (status.equals("Married Filing Jointly") && income >= 16701 && income <= 67900) {
@@ -163,12 +161,10 @@ public class ControlFlow {
 		} else if (status.equals("Married Filing Separately") && income >= 8351 && income <= 33950) {
 			taxCollected = income * 0.15;
 			tax = 15;
-		}  else if (status.equals("Head of Household") && income >= 11951 && income <= 45500) {
+		} else if (status.equals("Head of Household") && income >= 11951 && income <= 45500) {
 			taxCollected = income * 0.15;
 			tax = 15;
-		}
-		
-		if (status.equals("Single") && income >= 33951 && income <= 82250) {
+		} else if (status.equals("Single") && income >= 33951 && income <= 82250) {
 			taxCollected = income * 0.25;
 			tax = 25;
 		} else if (status.equals("Married Filing Jointly") && income >= 67901 && income <= 137050) {
@@ -177,12 +173,10 @@ public class ControlFlow {
 		} else if (status.equals("Married Filing Separately") && income >= 33951 && income <= 68525) {
 			taxCollected = income * 0.25;
 			tax = 25;
-		}  else if (status.equals("Head of Household") && income >= 45501 && income <= 117450) {
+		} else if (status.equals("Head of Household") && income >= 45501 && income <= 117450) {
 			taxCollected = income * 0.25;
 			tax = 25;
-		}
-		
-		if (status.equals("Single") && income >= 82251 && income <= 171550) {
+		} else if (status.equals("Single") && income >= 82251 && income <= 171550) {
 			taxCollected = income * 0.28;
 			tax = 28;
 		} else if (status.equals("Married Filing Jointly") && income >= 137051 && income <= 208850) {
@@ -191,12 +185,10 @@ public class ControlFlow {
 		} else if (status.equals("Married Filing Separately") && income >= 68526 && income <= 104425) {
 			taxCollected = income * 0.28;
 			tax = 28;
-		}  else if (status.equals("Head of Household") && income >= 117451 && income <= 190200) {
+		} else if (status.equals("Head of Household") && income >= 117451 && income <= 190200) {
 			taxCollected = income * 0.28;
 			tax = 28;
-		}
-		
-		if (status.equals("Single") && income >= 171551 && income <= 372950) {
+		} else if (status.equals("Single") && income >= 171551 && income <= 372950) {
 			taxCollected = income * 0.33;
 			tax = 33;
 		} else if (status.equals("Married Filing Jointly") && income >= 208851 && income <= 372950) {
@@ -205,12 +197,10 @@ public class ControlFlow {
 		} else if (status.equals("Married Filing Separately") && income >= 104426 && income <= 186475) {
 			taxCollected = income * 0.33;
 			tax = 33;
-		}  else if (status.equals("Head of Household") && income >= 190201 && income <= 372950) {
+		} else if (status.equals("Head of Household") && income >= 190201 && income <= 372950) {
 			taxCollected = income * 0.33;
 			tax = 33;
-		}
-		
-		if (status.equals("Single") && income >= 372951) {
+		} else if (status.equals("Single") && income >= 372951) {
 			taxCollected = income * 0.35;
 			tax = 35;
 		} else if (status.equals("Married Filing Jointly") && income >= 372951) {
@@ -219,7 +209,7 @@ public class ControlFlow {
 		} else if (status.equals("Married Filing Separately") && income >= 186476) {
 			taxCollected = income * 0.35;
 			tax = 35;
-		}  else if (status.equals("Head of Household") && income >= 372951) {
+		} else if (status.equals("Head of Household") && income >= 372951) {
 			taxCollected = income * 0.35;
 			tax = 35;
 		}
